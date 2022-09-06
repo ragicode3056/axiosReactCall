@@ -1,24 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
+import {axios} from 'axios'
+import { LoginModal } from './components/LogInModal';
+import { Table } from './components/Table';
+import { useState } from 'react';
 
 function App() {
+ const [isModalClicked,setisModalClicked] = useState(false);
+ 
+ const submitHandler = () =>{
+  setisModalClicked(true);
+ }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  <div>
+  
+ {!isModalClicked ? <LoginModal onSubmit = {submitHandler}/>: <Table/>  }
+
+  </div>
   );
 }
 

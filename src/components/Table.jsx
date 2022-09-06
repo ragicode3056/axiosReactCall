@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 
  
@@ -11,13 +12,11 @@ export const Table = () => {
  
  
     const fetchData = () => {
-        fetch(URL)
-            .then((res) =>
-                res.json())
- 
+        axios.get(URL)
+           
             .then((response) => {
-                console.log(response);
-                getData(response);
+                console.log(response.data);
+                getData(response.data);
             })
  
     }
